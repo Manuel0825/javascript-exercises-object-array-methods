@@ -6,7 +6,10 @@
 // =============================================================================
 
 function getTotalPrice(object) {
-  // Aquí tu código
+  const prices = Object.values(object);
+  const totalPrice = prices.reduce((total, price) => total + price, 0);
+
+  return totalPrice;
 }
 
 // =============================================================================
@@ -16,7 +19,10 @@ function getTotalPrice(object) {
 // =============================================================================
 
 function getAverageAge(object) {
-  // Aquí tu código
+  const ages = Object.values(object);
+  const addAges = ages.reduce((total, age) => total + age, 0);
+  const averageAge = addAges / ages.length;
+  return averageAge;
 }
 
 // =============================================================================
@@ -27,8 +33,11 @@ function getAverageAge(object) {
 // =============================================================================
 
 function getPeopleArray(object) {
-  // Aquí tu código
-}
+  const People = Object.keys(object);
+  const peopleObjArr = People.map((name) => ({ name, age: object[name] }));
+  return peopleObjArr;
+  }
+ 
 
 // =============================================================================
 // 4. Dado un objeto con nombres de frutas como claves y su cantidad como valor,
@@ -39,7 +48,16 @@ function getPeopleArray(object) {
 // =============================================================================
 
 function getAbundantFruits(object) {
-  // Aquí tu código
+  const FruitList = Object.entries(object);
+  const abundantFruits = FruitList.filter(
+    ([fruit, quantity]) => quantity > 10
+  );
+  const result = abundantFruits.map(([fruit, quantity]) => ({
+    fruit: fruit,
+    quantity: quantity,
+  }));
+
+  return result;
 }
 
 // =============================================================================
@@ -50,5 +68,17 @@ function getAbundantFruits(object) {
 // =============================================================================
 
 function getCharacterCount(object) {
-  // Aquí tu código
+  const rings = Object.keys(object);
+  const anillos  = Object.values(object);
+
+  const ringCharacters = rings.join(''); 
+  const anillosCharacters = anillos.join(''); 
+
+  const Characters = ringCharacters + anillosCharacters;
+  const characterCount = Characters.length;
+
+  return characterCount;
 }
+
+
+// done
